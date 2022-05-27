@@ -1,0 +1,37 @@
+
+Rules: 
+
+exp->[['exp', 'addop', 'term'], ['term']]
+addop->[['+'], ['-']]
+term->[['term', 'mullop', 'factor'], ['factor']]
+mullop->[['*'], ['/']]
+factor->[['(', 'exp', ')'], ['id'], ['num']]
+
+After elimination of left recursion:
+
+exp->[['term', "exp'"]]
+addop->[['+'], ['-']]
+term->[['factor', "term'"]]
+mullop->[['*'], ['/']]
+factor->[['(', 'exp', ')'], ['id'], ['num']]
+exp'->[['addop', 'term', "exp'"], ['#']]
+term'->[['mullop', 'factor', "term'"], ['#']]
+
+After left factoring:
+
+exp->[['term', "exp'"]]
+addop->[['+'], ['-']]
+term->[['factor', "term'"]]
+mullop->[['*'], ['/']]
+factor->[['(', 'exp', ')'], ['id'], ['num']]
+exp'->[['addop', 'term', "exp'"], ['#']]
+term'->[['mullop', 'factor', "term'"], ['#']]
+
+Calculated firsts: 
+first(exp) => {'num', 'id', '('}
+first(addop) => {'+', '-'}
+first(term) => {'num', 'id', '('}
+first(mullop) => {'*', '/'}
+first(factor) => {'num', 'id', '('}
+first(exp') => {'+', '#', '-'}
+first(term') => {'*', '#', '/'}

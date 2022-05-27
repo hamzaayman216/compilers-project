@@ -1,0 +1,17 @@
+
+Generated parsing table:
+
+                    +                    -                    *                    /                    (                    )                   id                  num                    $
+exp                                                 exp->term exp'            exp->term exp'exp->term exp'            
+addop     addop->+    addop->-                                                                                    
+term                                                 term->factor term'            term->factor term'term->factor term'            
+mullop                            mullop->*   mullop->/                                                            
+factor                                                 factor->( exp )              factor->id factor->num            
+exp' exp'->addop term exp'exp'->addop term exp'                                         exp'->#                             exp'->#
+term'     term'->#    term'->#term'->mullop factor term'term'->mullop factor term'                term'->#                            term'->#
+
+Validate String => 
+
+Buffer                                             Stack                                                        Action                                                                
+
+Invalid String! No rule at Table[exp][$].

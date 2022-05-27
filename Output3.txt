@@ -1,0 +1,6 @@
+There are 2 Operator(s): ['+', '/']
+There are 2 Identifier(s): ['x', 'y']
+There are 1 Numeral(s): ['6']
+
+[1, 'id1', 'op1', 'id3', 'op2', 'num3']
+Status: Accepted

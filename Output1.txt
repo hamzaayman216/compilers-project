@@ -1,0 +1,20 @@
+
+Calculated follows: 
+follow(exp) => {')', '$'}
+follow(addop) => {'id', 'num', '('}
+follow(term) => {'+', ')', '-', '$'}
+follow(mullop) => {'id', 'num', '('}
+follow(factor) => {'+', '$', ')', '-', '/', '*'}
+follow(exp') => {')', '$'}
+follow(term') => {'+', ')', '-', '$'}
+
+Firsts and Follow Result table:
+
+Non-T      FIRST                   FOLLOW                             
+exp        {'num', 'id', '('}      {')', '$'}                         
+addop      {'+', '-'}              {'id', 'num', '('}                 
+term       {'num', 'id', '('}      {'+', ')', '-', '$'}               
+mullop     {'*', '/'}              {'id', 'num', '('}                 
+factor     {'num', 'id', '('}      {'+', '$', ')', '-', '/', '*'}     
+exp'       {'+', '#', '-'}         {')', '$'}                         
+term'      {'*', '#', '/'}         {'+', ')', '-', '$'}               
